@@ -1,0 +1,20 @@
+Resources:
+  Ec2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-053b0d53c279acc90
+      Tags:
+        - Key: Name
+          Value: !Join [" ", [Named, an, Ec2, instance, using, a, join, function] ]
+      SecurityGroups:
+        - !Ref MySecurityGroup
+  MySecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enable ssh access via port 22
+      SecurityGroupsIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 0.0.0.0/0

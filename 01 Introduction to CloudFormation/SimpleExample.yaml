@@ -1,0 +1,9 @@
+Resources:
+  Ec2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-0889a44b331db0194 # Amazon Linux AMI in N.Virginia
+      Tags:
+        - Key: Name
+          Value: Updated application
